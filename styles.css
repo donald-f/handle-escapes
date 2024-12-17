@@ -2,11 +2,9 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f7f6;
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  padding: 20px; /* Adds breathing room */
+  display: block; /* Default to allow natural scrolling */
+  overflow-y: auto; /* Page scrolls if content exceeds height */
 }
 
 .container {
@@ -16,6 +14,7 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   width: 100%;
+  margin: 0 auto; /* Center content horizontally */
 }
 
 h1 {
@@ -62,8 +61,9 @@ button {
   background-color: #4c4c4c;
 }
 
-.output {
-  white-space: pre-wrap; /* Preserves whitespace and wraps text */
+pre {
+  white-space: pre; /* Preserve spaces, tabs, and line breaks */
+  overflow-x: auto; /* Horizontal scrolling for long lines */
   background-color: #f9f9f9;
   padding: 10px;
   border: 1px solid #ccc;
@@ -72,4 +72,5 @@ button {
   font-size: 14px;
   color: #333;
   border-radius: 4px;
+  box-sizing: border-box;
 }

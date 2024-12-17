@@ -32,3 +32,20 @@ function interpretEscapeSequences(text) {
     .replace(/\\'/g, "'") // Single quote
     .replace(/\\"/g, '"'); // Double quote
 }
+
+const outputPre = document.getElementById("outputText");
+
+// Add event listener for keydown on the <pre> element
+outputPre.addEventListener("keydown", function (event) {
+  // Check if 'Ctrl + A' (or 'Cmd + A' on Mac) was pressed
+  if ((event.ctrlKey || event.metaKey) && event.key === "a") {
+    event.preventDefault(); // Prevent the default "select all" behavior
+
+    // Create a Range and select the text content inside <pre>
+    const range = document.createRange();
+    range.selectNodeContents(outputPre);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+});
